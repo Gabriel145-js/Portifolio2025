@@ -1,19 +1,29 @@
 export default function lampada() {
+    const containerBtn = document.querySelector('.btn-container');
+    const luz = document.querySelector('.brilho-luz');
+    const body = document.body;
 
-const lampada = document.querySelector('.lampada')
-const tela = document.querySelector('.tela')
+    let ligar = true; 
 
-let ligar = false 
-
-tela.addEventListener('click', () => {
-    if(ligar){
-    lampada.style.display = 'flex'
+    if (body.classList.contains('modo-claro')) {
+        luz.style.display = 'none'; 
+        ligar = false;
+    } else {
+        luz.style.display = 'flex'; 
+        ligar = true;
     }
-    else {
-        lampada.style.display = 'none'
-    }
 
-    ligar = !ligar
-})
-
+    containerBtn.addEventListener('click', () => {
+        if (body.classList.contains('modo-claro')) {
+            luz.style.display = 'none';
+            ligar = false;
+        } else {
+            if (ligar) {
+                luz.style.display = 'none'; 
+            } else {
+                luz.style.display = 'flex'; 
+            }
+            ligar = !ligar;
+        }
+    });
 }
