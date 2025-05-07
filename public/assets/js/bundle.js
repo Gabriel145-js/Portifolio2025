@@ -48,29 +48,87 @@ function btnModoEscuro() {
   var modoEscuro = document.querySelector('.modo-escuro');
   var modoClaro = document.querySelector('.modo-claro');
   var mover = false;
+
+  // Configuração inicial
   btnDark.style.transform = 'translate(0px)';
   icon.classList.remove('fa-sun');
   icon.classList.add('fa-moon');
   icon.style.transform = 'rotate(0deg)';
   modoEscuro.style.display = 'block';
   modoClaro.style.display = 'none';
+  document.body.classList.add('modo-escuro');
+
+  // Evento de clique para alternar o modo
   containerBtn.addEventListener('click', function () {
     if (mover) {
+      // Modo claro
       btnDark.style.transform = 'translate(0px)';
       icon.classList.remove('fa-sun');
       icon.classList.add('fa-moon');
       icon.style.transform = 'rotate(0deg)';
       modoEscuro.style.display = 'block';
       modoClaro.style.display = 'none';
+      document.body.classList.remove('modo-escuro');
+      document.body.classList.add('modo-claro');
     } else {
+      // Modo escuro
       btnDark.style.transform = 'translate(30px)';
       icon.classList.remove('fa-moon');
       icon.classList.add('fa-sun');
       icon.style.transform = 'rotate(180deg)';
       modoEscuro.style.display = 'none';
       modoClaro.style.display = 'block';
+      document.body.classList.remove('modo-claro');
+      document.body.classList.add('modo-escuro');
     }
     mover = !mover;
+  });
+}
+
+/***/ }),
+
+/***/ "./src/js modules/escritas.js":
+/*!************************************!*\
+  !*** ./src/js modules/escritas.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ escritasAnimation)
+/* harmony export */ });
+function escritasAnimation() {
+  var escrita = document.querySelector('.alternar-escrita');
+  var adjetivos = ['Front-end', 'Web', 'Criativo', 'Comunicativo', 'Flexível'];
+  var index = 0;
+  function atualizarTexto() {
+    escrita.innerHTML = " ".concat(adjetivos[index]);
+    index = (index + 1) % adjetivos.length;
+  }
+  setInterval(atualizarTexto, 2000);
+  atualizarTexto();
+}
+
+/***/ }),
+
+/***/ "./src/js modules/eventoscrol.js":
+/*!***************************************!*\
+  !*** ./src/js modules/eventoscrol.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ eventoScroll)
+/* harmony export */ });
+function eventoScroll() {
+  window.addEventListener('scroll', function () {
+    var sobreMim = document.querySelector('.container-sobre');
+    var posicaoSobre = sobreMim.getBoundingClientRect().top;
+    var alturaTela = window.innerHeight;
+    if (posicaoSobre < alturaTela - 150) {
+      sobreMim.classList.add('ativo');
+    }
   });
 }
 
@@ -90,26 +148,26 @@ function lampada() {
   var containerBtn = document.querySelector('.btn-container');
   var luz = document.querySelector('.brilho-luz');
   var body = document.body;
-  var ligar = true;
-  if (body.classList.contains('modo-claro')) {
-    luz.style.display = 'none';
-    ligar = false;
-  } else {
-    luz.style.display = 'flex';
-    ligar = true;
-  }
-  containerBtn.addEventListener('click', function () {
+
+  // Função para atualizar o estado da lâmpada e das letras com base no modo
+  function atualizarEstado() {
     if (body.classList.contains('modo-claro')) {
-      luz.style.display = 'none';
-      ligar = false;
+      luz.style.display = 'none'; // Desliga a lâmpada no modo claro
+      body.style.color = '#000'; // Letras pretas no modo claro
     } else {
-      if (ligar) {
-        luz.style.display = 'none';
-      } else {
-        luz.style.display = 'flex';
-      }
-      ligar = !ligar;
+      luz.style.display = 'flex'; // Liga a lâmpada no modo escuro
+      body.style.color = '#fff'; // Letras brancas no modo escuro
     }
+  }
+
+  // Atualiza o estado inicial
+  atualizarEstado();
+
+  // Evento para alternar o estado ao clicar no botão
+  containerBtn.addEventListener('click', function () {
+    body.classList.toggle('modo-claro');
+    body.classList.toggle('modo-escuro');
+    atualizarEstado(); // Atualiza o estado após alternar o modo
   });
 }
 
@@ -194,6 +252,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_modules_darkmode__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js modules/darkmode */ "./src/js modules/darkmode.js");
 /* harmony import */ var _js_modules_lampada__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js modules/lampada */ "./src/js modules/lampada.js");
 /* harmony import */ var _js_modules_clickSplash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js modules/clickSplash */ "./src/js modules/clickSplash.js");
+/* harmony import */ var _js_modules_eventoscrol__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js modules/eventoscrol */ "./src/js modules/eventoscrol.js");
+/* harmony import */ var _js_modules_escritas__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js modules/escritas */ "./src/js modules/escritas.js");
+
+
 
 
 
@@ -201,6 +263,8 @@ __webpack_require__.r(__webpack_exports__);
 (0,_js_modules_darkmode__WEBPACK_IMPORTED_MODULE_1__["default"])();
 (0,_js_modules_lampada__WEBPACK_IMPORTED_MODULE_2__["default"])();
 (0,_js_modules_clickSplash__WEBPACK_IMPORTED_MODULE_3__["default"])();
+(0,_js_modules_eventoscrol__WEBPACK_IMPORTED_MODULE_4__["default"])();
+(0,_js_modules_escritas__WEBPACK_IMPORTED_MODULE_5__["default"])();
 })();
 
 /******/ })()

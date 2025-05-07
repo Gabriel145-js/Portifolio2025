@@ -3,27 +3,24 @@ export default function lampada() {
     const luz = document.querySelector('.brilho-luz');
     const body = document.body;
 
-    let ligar = true; 
-
-    if (body.classList.contains('modo-claro')) {
-        luz.style.display = 'none'; 
-        ligar = false;
-    } else {
-        luz.style.display = 'flex'; 
-        ligar = true;
+    // Função para atualizar o estado da lâmpada e das letras com base no modo
+    function atualizarEstado() {
+        if (body.classList.contains('modo-claro')) {
+            luz.style.display = 'none'; // Desliga a lâmpada no modo claro
+            body.style.color = '#000'; // Letras pretas no modo claro
+        } else {
+            luz.style.display = 'flex'; // Liga a lâmpada no modo escuro
+            body.style.color = '#fff'; // Letras brancas no modo escuro
+        }
     }
 
+    // Atualiza o estado inicial
+    atualizarEstado();
+
+    // Evento para alternar o estado ao clicar no botão
     containerBtn.addEventListener('click', () => {
-        if (body.classList.contains('modo-claro')) {
-            luz.style.display = 'none';
-            ligar = false;
-        } else {
-            if (ligar) {
-                luz.style.display = 'none'; 
-            } else {
-                luz.style.display = 'flex'; 
-            }
-            ligar = !ligar;
-        }
+        body.classList.toggle('modo-claro');
+        body.classList.toggle('modo-escuro');
+        atualizarEstado(); // Atualiza o estado após alternar o modo
     });
 }

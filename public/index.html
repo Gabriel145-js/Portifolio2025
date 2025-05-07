@@ -6,89 +6,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portifolio</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
-</head>
+
 
 <body>
-
     <section class="modo-escuro">
         <div class="esquerda"></div>
         <div class="direita"></div>
+        <div class="sobreMim-skills"></div>
     </section>
-
+    
     <section class="modo-claro">
         <div class="esquerda-claro"></div>
         <div class="direita-claro"></div>
+        <div class="sobreMim-skills"></div>
     </section>
-
-
+    
     <nav class="container-navbar">
         <div class="navbar">
-            <i class="fa-solid fa-address-card"></i>
-            <a href="">Sobre mim</a>
+            <a href="/public/sobre.html">Sobre mim</a>
         </div>
         <div class="navbar">
-            <i class="fa-solid fa-marker"></i>
             <a href="">Habilidades</a>
         </div>
         <div class="navbar">
-            <i class="fa-solid fa-code"></i>
             <a href="">Projetos</a>
         </div>
         <div class="navbar">
-            <i class="fa-solid fa-phone-volume"></i>
             <a href="">Contatos</a>
         </div>
         <div class="navbar darkmode">
-
             <i class="fa-solid fa-moon"></i>
-
             <div class="btn-container">
                 <button class="btn-dark"></button>
             </div>
         </div>
-
-        </div>
-
     </nav>
-    </header>
+    
+        <section class="container-lampada">
+            <div class="haste-lampada">
+                <div class="bocal-lampada">
+                    <span class="brilho-luz"></span>
+                    <div class="luz"></div>
+                </div>
+            </div>
 
-    <section class="container-lampada">
-        <div class="haste-lampada">
-            <div class="bocal-lampada">
-                <span class="brilho-luz"></span>
-                <div class="luz"></div>
+
+        </section>
+
+
+
+        <div class="carcaca-pc">
+            <div class="tela">
+                <img src="/src/imgs/svgs/telapc.svg" alt="">
+            </div>
+            <div class="base"></div>
+            <div class="prateleira-pc">
+                <img id="flor-mario" src="/src/imgs/svgs/flormario.svg   " alt="">
+                <img id="bloco-mario" src="/src/imgs/svgs/blocomario.svg" alt="">
+
             </div>
         </div>
 
 
-    </section>
 
-    <div class="carcaca-pc">
-        <div class="tela">
-            <img src="/src/imgs/svgs/telapc.svg" alt="">
-        </div>
-        <div class="base"></div>
-        <div class="prateleira-pc">
-            <img id="flor-mario" src="/src/imgs/svgs/flormario.svg   " alt="">
-            <img id="bloco-mario" src="/src/imgs/svgs/blocomario.svg" alt="">
+        <article class="container-apresentacao">
+            <h1>Gabriel Zaparolli</h1>  
+            <p class="alternar-escrita"></p>
+        </article>
 
-        </div>
-    </div>
+    </header>
+
+    <!--<section id="sobreMim" class="sobreMim-skills">
+        
+        <article class="container-sobre">
+            <div class="fundo-sobre">
+                <p>Ei! Eu sou Gabriel</p>
+                <p>Desenvolvedor de software apaixonado em transformar códigos em experiências incríveis!</p>
+                <p>Dominio as artes do HTML, CSS, JavaScript, NodeJs, React, MySQL e SASS</p>
+                <p>Especialista em transformar ideias em interfaces magicas, atuo como dev front-end, mas não tenho medo
+                    de meter a mão no back-end quando preciso</p>
+                <p>Priorizo codigo limpo, um bom café e me atraio por desafios que me fazem usar minhas habilidades</p>
+                <p>Gosto muito de inovação, resolver problemas com agilidade, profissionalismo e criatividade.</p>
+                <p>Estou sempre pronto para aprender algo novo, e nas horas vagas gosto de brincar com meu cachorro</p>
+            </div>
+        </article>
+
+        
+    </section> -->
 
 
-    <article class="container-apresentacao">
-        <h1>Bem-vindo ao meu Portifolio</h1>
-        <p>Gabriel Zaparolli</p>
-        <img src="/src/imgs/svgs/splashsvg/splash.svg" alt="" class="tinta">
-    </article>
-
-    <div class="click-container"></div>
 
 
+    <div class="click-container"></div> <!--Script splash-->
     <script src="./assets/js/bundle.js"></script>
     <script src="https://kit.fontawesome.com/0c81659ef6.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
-</body>
-
+    
 </html>
