@@ -7,13 +7,8 @@ import escritasAnimation from './js modules/escritas';
 
 document.addEventListener('DOMContentLoaded', () => {
 btnModoEscuro()
-
-if (window.location.pathname === '/') {
-    import('./js modules/lampada').then((module) => {
-        const lampada = module.default;
-        lampada();
-        escritasAnimation()
-    })};
+lampada()
+escritasAnimation()
 clickSplash()
 eventoScroll()
 
