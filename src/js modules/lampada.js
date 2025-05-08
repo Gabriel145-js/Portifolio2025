@@ -9,7 +9,7 @@ export default function lampada() {
             luz.style.display = 'none'; // Desliga a lâmpada no modo claro
             body.style.color = '#000'; // Letras pretas no modo claro
         } else {
-            luz.style.display = 'flex'; // Liga a lâmpada no modo escuro
+            luz.style.display = 'block'; // Liga a lâmpada no modo escuro
             body.style.color = '#fff'; // Letras brancas no modo escuro
         }
     }

@@ -5,10 +5,17 @@ import clickSplash from './js modules/clickSplash';
 import eventoScroll from './js modules/eventoscrol';
 import escritasAnimation from './js modules/escritas';
 
-
+document.addEventListener('DOMContentLoaded', () => {
 btnModoEscuro()
-lampada()
+
+if (window.location.pathname === '/') {
+    import('./js modules/lampada').then((module) => {
+        const lampada = module.default;
+        lampada();
+        escritasAnimation()
+    })};
 clickSplash()
 eventoScroll()
-escritasAnimation()
 
+
+})

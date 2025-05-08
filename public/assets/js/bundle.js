@@ -41,12 +41,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ btnModoEscuro)
 /* harmony export */ });
+var listenerAdicionado = false;
 function btnModoEscuro() {
   var containerBtn = document.querySelector('.btn-container');
   var btnDark = document.querySelector('.btn-dark');
-  var icon = document.querySelector('.fa-moon');
-  var modoEscuro = document.querySelector('.modo-escuro');
-  var modoClaro = document.querySelector('.modo-claro');
+  var icon = document.querySelector('.fa-moon') || document.querySelector('.fa-sun');
+  var modoEscuro = document.querySelector('.modo-escuro-backgroud');
+  var modoClaro = document.querySelector('.modo-claro-backgroud');
   var mover = false;
 
   // Configuração inicial
@@ -57,32 +58,33 @@ function btnModoEscuro() {
   modoEscuro.style.display = 'block';
   modoClaro.style.display = 'none';
   document.body.classList.add('modo-escuro');
-
-  // Evento de clique para alternar o modo
-  containerBtn.addEventListener('click', function () {
-    if (mover) {
-      // Modo claro
-      btnDark.style.transform = 'translate(0px)';
-      icon.classList.remove('fa-sun');
-      icon.classList.add('fa-moon');
-      icon.style.transform = 'rotate(0deg)';
-      modoEscuro.style.display = 'block';
-      modoClaro.style.display = 'none';
-      document.body.classList.remove('modo-escuro');
-      document.body.classList.add('modo-claro');
-    } else {
-      // Modo escuro
-      btnDark.style.transform = 'translate(30px)';
-      icon.classList.remove('fa-moon');
-      icon.classList.add('fa-sun');
-      icon.style.transform = 'rotate(180deg)';
-      modoEscuro.style.display = 'none';
-      modoClaro.style.display = 'block';
-      document.body.classList.remove('modo-claro');
-      document.body.classList.add('modo-escuro');
-    }
-    mover = !mover;
-  });
+  if (!listenerAdicionado) {
+    containerBtn.addEventListener('click', function () {
+      if (mover) {
+        // Modo claro
+        btnDark.style.transform = 'translate(0px)';
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+        icon.style.transform = 'rotate(0deg)';
+        modoEscuro.style.display = 'block';
+        modoClaro.style.display = 'none';
+        document.body.classList.remove('modo-escuro');
+        document.body.classList.add('modo-claro');
+      } else {
+        // Modo escuro
+        btnDark.style.transform = 'translate(30px)';
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+        icon.style.transform = 'rotate(180deg)';
+        modoEscuro.style.display = 'none';
+        modoClaro.style.display = 'block';
+        document.body.classList.remove('modo-claro');
+        document.body.classList.add('modo-escuro');
+      }
+      mover = !mover;
+    });
+    listenerAdicionado = true;
+  }
 }
 
 /***/ }),
@@ -105,7 +107,7 @@ function escritasAnimation() {
     escrita.innerHTML = " ".concat(adjetivos[index]);
     index = (index + 1) % adjetivos.length;
   }
-  setInterval(atualizarTexto, 2000);
+  setInterval(atualizarTexto, 1500);
   atualizarTexto();
 }
 
@@ -155,7 +157,7 @@ function lampada() {
       luz.style.display = 'none'; // Desliga a lâmpada no modo claro
       body.style.color = '#000'; // Letras pretas no modo claro
     } else {
-      luz.style.display = 'flex'; // Liga a lâmpada no modo escuro
+      luz.style.display = 'block'; // Liga a lâmpada no modo escuro
       body.style.color = '#fff'; // Letras brancas no modo escuro
     }
   }
@@ -260,11 +262,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_js_modules_darkmode__WEBPACK_IMPORTED_MODULE_1__["default"])();
-(0,_js_modules_lampada__WEBPACK_IMPORTED_MODULE_2__["default"])();
-(0,_js_modules_clickSplash__WEBPACK_IMPORTED_MODULE_3__["default"])();
-(0,_js_modules_eventoscrol__WEBPACK_IMPORTED_MODULE_4__["default"])();
-(0,_js_modules_escritas__WEBPACK_IMPORTED_MODULE_5__["default"])();
+document.addEventListener('DOMContentLoaded', function () {
+  (0,_js_modules_darkmode__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  if (window.location.pathname === '/') {
+    Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./js modules/lampada */ "./src/js modules/lampada.js")).then(function (module) {
+      var lampada = module["default"];
+      lampada();
+      (0,_js_modules_escritas__WEBPACK_IMPORTED_MODULE_5__["default"])();
+    });
+  }
+  ;
+  (0,_js_modules_clickSplash__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  (0,_js_modules_eventoscrol__WEBPACK_IMPORTED_MODULE_4__["default"])();
+});
 })();
 
 /******/ })()

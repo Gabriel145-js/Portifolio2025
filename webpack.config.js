@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -21,6 +22,18 @@ module.exports = {
                 }
             },
             {
+                test: /\.ejs$/,
+                use: [
+                    {
+                        loader: 'ejs-loader',
+                        options: {
+                            esModule: false, // Desativa o modo ES Modules
+                            variable: 'data' // Define um escopo para as variáveis
+                        }
+                    }
+                ]
+            },
+            {
                 test: /\.s[ac]ss$/i,
                 use: [
                     MiniCssExtractPlugin.loader,
@@ -32,7 +45,15 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: '../css/styles.css'
+            filename: '../css/styles.css'  // Ajuste se necessário
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: './public/index.ejs'
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'sobre.html',
+            template: './public/sobre.ejs'  // Corrigido o caminho
         })
     ],
     devtool: 'source-map',

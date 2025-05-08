@@ -12,7 +12,7 @@ export default function escritasAnimation() {
     }
 
     
-    setInterval(atualizarTexto, 2000);
+    setInterval(atualizarTexto, 1500);
 
 
     atualizarTexto();
