@@ -2,6 +2,31 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/js modules/bordaNavbar.js":
+/*!***************************************!*\
+  !*** ./src/js modules/bordaNavbar.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ bordaNavbar)
+/* harmony export */ });
+function bordaNavbar() {
+  document.querySelectorAll('.link-navbar').forEach(function (link) {
+    link.addEventListener('mouseenter', function () {
+      link.classList.remove('retirar-borda');
+      link.classList.add('borda-ativa');
+    });
+    link.addEventListener('mouseleave', function () {
+      link.classList.remove('borda-ativa');
+      link.classList.add('retirar-borda');
+    });
+  });
+}
+
+/***/ }),
+
 /***/ "./src/js modules/clickSplash.js":
 /*!***************************************!*\
   !*** ./src/js modules/clickSplash.js ***!
@@ -173,6 +198,44 @@ function lampada() {
 
 /***/ }),
 
+/***/ "./src/js modules/randomimg.js":
+/*!*************************************!*\
+  !*** ./src/js modules/randomimg.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ randomImg)
+/* harmony export */ });
+function randomImg() {
+  var image = document.querySelector('.about-skills img');
+  function generateSmoothClipPath() {
+    var top = "".concat(Math.random() * 10 + 5, "%");
+    var right = "".concat(Math.random() * 10 + 5, "%");
+    var bottom = "".concat(Math.random() * 10 + 5, "%");
+    var left = "".concat(Math.random() * 10 + 5, "%");
+    var topLeftRadius = "".concat(Math.random() * 30 + 20, "%");
+    var topRightRadius = "".concat(Math.random() * 30 + 20, "%");
+    var bottomRightRadius = "".concat(Math.random() * 30 + 20, "%");
+    var bottomLeftRadius = "".concat(Math.random() * 30 + 20, "%");
+    return "inset(".concat(top, " ").concat(right, " ").concat(bottom, " ").concat(left, " round ").concat(topLeftRadius, " ").concat(topRightRadius, " ").concat(bottomRightRadius, " ").concat(bottomLeftRadius, ")");
+  }
+
+  // Define o formato inicial ao carregar a página
+  var initialClipPath = generateSmoothClipPath();
+  image.style.clipPath = initialClipPath;
+  image.style.webkitClipPath = initialClipPath; // Compatibilidade com navegadores WebKit
+
+  setInterval(function () {
+    var newClipPath = generateSmoothClipPath();
+    image.style.clipPath = newClipPath;
+    image.style.webkitClipPath = newClipPath;
+  }, 2000);
+}
+
+/***/ }),
+
 /***/ "./src/sass/styles.sass":
 /*!******************************!*\
   !*** ./src/sass/styles.sass ***!
@@ -254,6 +317,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_modules_clickSplash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js modules/clickSplash */ "./src/js modules/clickSplash.js");
 /* harmony import */ var _js_modules_eventoscrol__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js modules/eventoscrol */ "./src/js modules/eventoscrol.js");
 /* harmony import */ var _js_modules_escritas__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js modules/escritas */ "./src/js modules/escritas.js");
+/* harmony import */ var _js_modules_randomimg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js modules/randomimg */ "./src/js modules/randomimg.js");
+/* harmony import */ var _js_modules_bordaNavbar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js modules/bordaNavbar */ "./src/js modules/bordaNavbar.js");
+
+
 
 
 
@@ -266,6 +333,8 @@ document.addEventListener('DOMContentLoaded', function () {
   (0,_js_modules_escritas__WEBPACK_IMPORTED_MODULE_5__["default"])();
   (0,_js_modules_clickSplash__WEBPACK_IMPORTED_MODULE_3__["default"])();
   (0,_js_modules_eventoscrol__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  (0,_js_modules_randomimg__WEBPACK_IMPORTED_MODULE_6__["default"])();
+  (0,_js_modules_bordaNavbar__WEBPACK_IMPORTED_MODULE_7__["default"])();
 });
 })();
 

@@ -9,39 +9,39 @@
 
 
 <body>
-    <section class="modo-escuro-backgroud">
-        <div class="esquerda"></div>
-        <div class="direita"></div>
-    
-    </section>
-    
-    <section class="modo-claro-backgroud">
-        <div class="esquerda-claro"></div>
-        <div class="direita-claro"></div>
-    </section>
-    
-    <nav class="container-navbar">
-        <div class="navbar">
-            <a href="/sobre">Sobre mim</a>
-        </div>
-        <div class="navbar">
-            <a href="">Habilidades</a>
-        </div>
-        <div class="navbar">
-            <a href="">Projetos</a>
-        </div>
-        <div class="navbar">
-            <a href="">Contatos</a>
-        </div>
-        <div class="navbar darkmode">
-            <i class="fa-solid fa-moon"></i>
-            <div class="btn-container">
-                <button class="btn-dark"></button>
+    <header class="home">
+        <section class="modo-escuro-backgroud">
+            <div class="esquerda"></div>
+            <div class="direita"></div>
+            <div class="about-skills"></div>
+        </section>
+
+        <section class="modo-claro-backgroud">
+            <div class="esquerda-claro"></div>
+            <div class="direita-claro"></div>
+            <div class="about-skills"></div>
+        </section>
+
+        <nav class="container-navbar">
+            <div class="navbar">
+                <a class="link-navbar" href="#ancora-about-skills">Sobre mim</a>
             </div>
-        </div>
-    </nav>
-
-
+            <div class="navbar">
+                <a class="link-navbar" href="#ancora-habilidades">Habilidades</a>
+            </div>
+            <div class="navbar">
+                <a class="link-navbar" href="">Projetos</a>
+            </div>
+            <div  class="navbar">
+                <a class="link-navbar" href="">Contatos</a>
+            </div>
+            <div class="navbar darkmode">
+                <i class="fa-solid fa-moon"></i>
+                <div class="btn-container">
+                    <button class="btn-dark"></button>
+                </div>
+            </div>
+        </nav>
 
         <section class="container-lampada">
             <div class="haste-lampada">
@@ -51,10 +51,7 @@
                 </div>
             </div>
 
-
         </section>
-
-
 
         <div class="carcaca-pc">
             <div class="tela">
@@ -68,18 +65,119 @@
             </div>
         </div>
 
-
         <article class="container-apresentacao">
             <h1>Gabriel Zaparolli</h1>
             <p class="alternar-escrita"></p>
         </article>
 
-        </header>
+    </header>
+
+    <section class="container-abouSkills about-skills" id="ancora-about-skills">
+        <div class="container-sobre">
+            <p>Sou desenvolvedor web com conhecimentos sólidos em HTML, CSS e JavaScript,
+                além de experiência com Sass para estilização avançada. Trabalho com Node.js no backend e
+                React no frontend, criando aplicações web modernas, interativas e responsivas. Estou sempre
+                buscando aprimorar minhas habilidades
+                e aprender novas tecnologias para entregar soluções eficientes e bem estruturadas.</p>
 
 
+        </div>
+        <img src="/src/imgs/eu.jpg" alt="">
 
-        <div class="click-container"></div> <!--Script splash-->
-        <script src="./assets/js/bundle.js"></script>
-        <script src="https://kit.fontawesome.com/0c81659ef6.js" crossorigin="anonymous"></script>
+
+    </section>
+
+    <section class="habilidades" id="ancora-habilidades">
+
+        <div class="txt-habilidades">
+            <h2 class="titulos">Conheça um pouco</h2>
+            <h1 class="titulos titulos-alto">Minhas Habilidades</h1>
+            <article class="sobre-habilidades">
+                <p class="">Tenho experiência com as principais tecnologias da web, como HTML5, CSS3 e JavaScript,
+                    além de conhecimentos em frameworks e ferramentas como React, Sass e Bootstrap. Busco desenvolver
+                    sites otimizados, funcionais e
+                    totalmente responsivos, sempre com atenção à performance e à qualidade do código.
+                </p>
+
+            </article>
+
+            <div class="soft-skills">
+                <span>
+                    <h3 class="ta">Soft Skills</h3>
+                </span>
+                <div class="listas-container">
+                    <ul class="ul-habilidades-um">
+                        <li>
+                            <p><i class="fa-solid fa-angles-right"></i> Comunicativo</p>
+                        </li>
+                        <li>
+                            <p><i class="fa-solid fa-angles-right"></i> Foco</p>
+                        </li>
+                        <li>
+                            <p><i class="fa-solid fa-angles-right"></i> Proatividade</p>
+                        </li>
+                        <li>
+                            <p><i class="fa-solid fa-angles-right"></i> Curiosidade</p>
+                        </li>
+                    </ul>
+                    <ul class="ul-habilidades-dois">
+                        <li>
+                            <p><i class="fa-solid fa-angles-right"></i> Adaptabilidade</p>
+                        </li>
+                        <li>
+                            <p><i class="fa-solid fa-angles-right"></i> Trabalho em equipe</p>
+                        </li>
+                        <li>
+                            <p><i class="fa-solid fa-angles-right"></i> Organização</p>
+                        </li>
+                        <li>
+                            <p><i class="fa-solid fa-angles-right"></i> Criatividade</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="icones-skills">
+            <div class="icones-info">
+                <i class="fa-brands fa-html5 fa-4x"></i>
+                <p>HTML5</p>
+            </div>
+            <div class="icones-info">
+                <i class="fa-brands fa-css3-alt fa-4x"></i>
+                <p>CSS3</p>
+            </div>
+            <div class="icones-info">
+                <i class="fa-brands fa-js fa-4x"></i>
+                <p>JavaScript</p>
+            </div>
+            <div class="icones-info">
+                <i class="fa-brands fa-react fa-4x"></i>
+                <p>React</p>
+            </div>
+            <div class="icones-info">
+                <i class="fa-brands fa-node-js fa-4x"></i>
+                <p>Node.js</p>
+            </div>
+            <div class="icones-info">
+                <i class="fa-brands fa-sass fa-4x"></i>
+                <p>Sass</p>
+            </div>
+            <div class="icones-info">
+                <i class="fa-brands fa-bootstrap fa-4x"></i>
+                <p>Sass</p>
+            </div>
+        
+        </div>
+
+    </section>
+
+    <section class="projetos">
+
+    </section>
+
+    <div class="click-container"></div> <!--Script splash-->
+    <script src="./assets/js/bundle.js"></script>
+    <script src="https://kit.fontawesome.com/0c81659ef6.js" crossorigin="anonymous"></script>
 
 </html>
