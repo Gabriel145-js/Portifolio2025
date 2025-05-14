@@ -9,20 +9,28 @@
 
 
 <body>
-    <header class="home">
+    <header class="home" id="ancora-home">
         <section class="modo-escuro-backgroud">
             <div class="esquerda"></div>
             <div class="direita"></div>
             <div class="about-skills"></div>
+            <div class="backgroud-habilidades"></div>
+            <div class="backgroud-projetos"></div>
         </section>
 
         <section class="modo-claro-backgroud">
             <div class="esquerda-claro"></div>
             <div class="direita-claro"></div>
             <div class="about-skills"></div>
+            <div class="backgroud-habilidades"></div>
+            <div class="backgroud-projetos"></div>
         </section>
 
         <nav class="container-navbar">
+            <span class="logo"><a href="">
+                    <h2>Gabriel Zaparolli |</h2>
+                    <h1> Dev</h1>
+                </a></span>
             <div class="navbar">
                 <a class="link-navbar" href="#ancora-about-skills">Sobre mim</a>
             </div>
@@ -30,10 +38,39 @@
                 <a class="link-navbar" href="#ancora-habilidades">Habilidades</a>
             </div>
             <div class="navbar">
-                <a class="link-navbar" href="">Projetos</a>
+                <a class="link-navbar" href="#ancora-projetos">Projetos</a>
             </div>
-            <div  class="navbar">
-                <a class="link-navbar" href="">Contatos</a>
+            <div class="navbar">
+                <a class="modal-contatos link-navbar" href="">Contatos</a>
+                <div class="modal-contatos-container">
+                    <div class="modal">
+                        <button class="fechar-modal">X</button>
+                        <form class="form-contato" action="https://formspree.io/f/mgvkprao" method="POST">
+                            <h1 class="tituulo-form-contatos">Entre em contato</h1>
+                            <div class="container-dados-ctt">
+                                <div class="dados-inicias-ctt">
+                                    <input class="remetente" type="email" name="email"
+                                        placeholder="Seu e-mail para resposta" required>
+                                    <input class="contato-assunto" type="text" name="subject" placeholder="Assunto"
+                                        required>
+                                    <button class="enviar-ctt" type="submit">Enviar</button>
+                                </div>
+                                <textarea class="contato-corpo" name="message" placeholder="Digite sua mensagem"
+                                    required></textarea>
+                            </div>
+                            <div class="icones-ctt">
+                                <a href="https://www.linkedin.com/in/gabriel-maschio-zaparolli-8703ab249/"
+                                    target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="mailto:gabriel.m.zaparolli@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                                <a href="https://wa.me/54991529657" target="_blank"><i
+                                        class="fa-brands fa-whatsapp"></i></a>
+                                <a href="https://github.com/Gabriel145-js" target="_blank"><i
+                                        class="fa-brands fa-github"></i></a>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
             </div>
             <div class="navbar darkmode">
                 <i class="fa-solid fa-moon"></i>
@@ -66,14 +103,26 @@
         </div>
 
         <article class="container-apresentacao">
+            <h2>Ei!! Me chamo</h2>
             <h1>Gabriel Zaparolli</h1>
             <p class="alternar-escrita"></p>
         </article>
 
+            <nav class="redes-sociais-home">
+                <a href="https://www.linkedin.com/in/gabriel-maschio-zaparolli-8703ab249/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://wa.me/54991529657" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://github.com/Gabriel145-js" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="mailto:gabriel.m.zaparolli@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            </nav>  
+
     </header>
 
-    <section class="container-abouSkills about-skills" id="ancora-about-skills">
-        <div class="container-sobre">
+    <section class="container-abouSkills about-skills " id="ancora-about-skills">
+        <div class="titulo-projetos">
+            <h2 class="titulos">Conheça um pouco</h2>
+            <h1 class="titulo-sobremim titulos titulos-alto">Sobre Mim</h1>
+        </div>
+        <div class="container-sobre animar-lado">
             <p>Sou desenvolvedor web com conhecimentos sólidos em HTML, CSS e JavaScript,
                 além de experiência com Sass para estilização avançada. Trabalho com Node.js no backend e
                 React no frontend, criando aplicações web modernas, interativas e responsivas. Estou sempre
@@ -87,11 +136,11 @@
 
     </section>
 
-    <section class="habilidades" id="ancora-habilidades">
+    <section class="habilidades backgroud-habilidades" id="ancora-habilidades">
 
-        <div class="txt-habilidades">
+        <div class="txt-habilidades animar-lado">
             <h2 class="titulos">Conheça um pouco</h2>
-            <h1 class="titulos titulos-alto">Minhas Habilidades</h1>
+            <h1 class="titulo-habilidades titulos titulos-alto">Minhas Habilidades</h1>
             <article class="sobre-habilidades">
                 <p class="">Tenho experiência com as principais tecnologias da web, como HTML5, CSS3 e JavaScript,
                     além de conhecimentos em frameworks e ferramentas como React, Sass e Bootstrap. Busco desenvolver
@@ -105,8 +154,8 @@
                 <span>
                     <h3 class="ta">Soft Skills</h3>
                 </span>
-                <div class="listas-container">
-                    <ul class="ul-habilidades-um">
+                <div class="listas-container ">
+                    <ul class="ul-habilidades-um ">
                         <li>
                             <p><i class="fa-solid fa-angles-right"></i> Comunicativo</p>
                         </li>
@@ -138,7 +187,7 @@
             </div>
         </div>
 
-        <div class="icones-skills">
+        <div class="icones-skills animar-lado-esquerdo">
             <div class="icones-info">
                 <i class="fa-brands fa-html5 fa-4x"></i>
                 <p>HTML5</p>
@@ -165,14 +214,108 @@
             </div>
             <div class="icones-info">
                 <i class="fa-brands fa-bootstrap fa-4x"></i>
-                <p>Sass</p>
+                <p>Bootstrap</p>
             </div>
-        
+
         </div>
 
     </section>
 
-    <section class="projetos">
+    <section class="projetos backgroud-projetos" id="ancora-projetos">
+        <div class="titulo-projetos">
+            <h2 class="titulos">Conheça os meus</h2>
+            <h1 class="titulo-projetos-alto titulos titulos-alto">Projetos</h1>
+        </div>
+        <div class="container-projetos animar-lado">
+            <div class="fundo-projetos">
+
+                <div class="abrigo-projetos">
+                    <img src="/src/imgs/ta port.png" alt="">
+                </div>
+
+            </div>
+
+            <article class="text-projetos">
+                <h2>MussattoBarberShop</h2>
+                <p>
+                    Esse site oferece um ambiente de apresentação de uma barbearia, com recurso de agendamento de
+                    horarios, avaliação no Google, chaves pix, QrCode de pagamentos e mais funcionalidades.
+                </p>
+            </article>
+
+            <div class="btn-link-site">
+                <button onclick="window.open('https://mussattobarber.com.br/', '_blank')">Visitar Site</button>
+            </div>
+            <div class="skills-projeto">
+                <i class="fa-brands fa-html5 fa-2x"></i>
+                <i class="fa-brands fa-css3-alt fa-2x"></i>
+                <i class="fa-brands fa-js fa-2x"></i>
+                <i class="fa-brands fa-sass fa-2x"></i>
+                <i class="fa-brands fa-bootstrap fa-2x"></i>
+            </div>
+        </div>
+
+
+        <div class="container-projetos animar-lado">
+            <div class="fundo-projetos">
+
+                <div class="abrigo-projetos">
+                    <img src="/src/imgs/ta port.png" alt="">
+                </div>
+
+            </div>
+
+            <article class="text-projetos">
+                <h2>MussattoBarberShop</h2>
+                <p>
+                    Esse site oferece um ambiente de apresentação de uma barbearia, com recurso de agendamento de
+                    horarios, avaliação no Google, chaves pix, QrCode de pagamentos e mais funcionalidades.
+                </p>
+            </article>
+
+            <div class="btn-link-site">
+                <button onclick="window.open('https://mussattobarber.com.br/', '_blank')">Visitar Site</button>
+            </div>
+            <div class="skills-projeto">
+                <i class="fa-brands fa-html5 fa-2x"></i>
+                <i class="fa-brands fa-css3-alt fa-2x"></i>
+                <i class="fa-brands fa-js fa-2x"></i>
+                <i class="fa-brands fa-sass fa-2x"></i>
+                <i class="fa-brands fa-bootstrap fa-2x"></i>
+            </div>
+        </div>
+
+
+        <div class="container-projetos animar-lado">
+            <div class="fundo-projetos">
+
+                <div class="abrigo-projetos">
+                    <img src="/src/imgs/ta port.png" alt="">
+                </div>
+
+            </div>
+
+            <article class="text-projetos">
+                <h2>MussattoBarberShop</h2>
+                <p>
+                    Esse site oferece um ambiente de apresentação de uma barbearia, com recurso de agendamento de
+                    horarios, avaliação no Google, chaves pix, QrCode de pagamentos e mais funcionalidades.
+                </p>
+            </article>
+
+            <div class="btn-link-site">
+                <button onclick="window.open('https://mussattobarber.com.br/', '_blank')">Visitar Site</button>
+            </div>
+            <div class="skills-projeto">
+                <i class="fa-brands fa-html5 fa-2x"></i>
+                <i class="fa-brands fa-css3-alt fa-2x"></i>
+                <i class="fa-brands fa-js fa-2x"></i>
+                <i class="fa-brands fa-sass fa-2x"></i>
+                <i class="fa-brands fa-bootstrap fa-2x"></i>
+            </div>
+        </div>
+
+
 
     </section>
 

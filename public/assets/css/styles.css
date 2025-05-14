@@ -49,14 +49,32 @@
 /*!********************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/styles.sass (12) ***!
   \********************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..9001,100..900&display=swap);
+/*!********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/styles.sass (13) ***!
+  \********************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,4000,7000,9001,4001,7001,900&display=swap);
+/*!********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/styles.sass (14) ***!
+  \********************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Itim&display=swap);
+/*!********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/styles.sass (15) ***!
+  \********************************************************************************************************************/
 :root {
   --cor-texto: #000;
   --texto-desenvolvedor: #000;
+  --escuro-projetos: rgba(82, 81, 81, 0.4784313725);
+  --backgroud-navbar: rgba(253, 253, 253, 0.8);
+  --escuro-modal: rgba(0, 0, 0, 0.7411764706);
 }
 
 body.modo-escuro {
   --cor-texto: #fff;
   --texto-desenvolvedor: #fff;
+  --escuro-projetos: rgba(15, 13, 13, 0.537254902);
+  --backgroud-navbar: rgba(5, 4, 4, 0.6705882353);
+  --escuro-modal: rgba(0, 0, 0, 0.7411764706);
 }
 
 @keyframes falhaLuz {
@@ -155,6 +173,14 @@ body.modo-escuro {
     transform: scale(1.2);
   }
 }
+@keyframes piscar-cursor {
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #089e7b;
+  }
+}
 .darkmode {
   position: relative;
   display: flex;
@@ -193,6 +219,22 @@ body.modo-escuro {
 
 .modo-claro .about-skills {
   background-color: #eab784;
+}
+
+.modo-escuro .backgroud-habilidades {
+  background-color: #0f0227;
+}
+
+.modo-claro .backgroud-habilidades {
+  background-color: #7f65ad;
+}
+
+.modo-escuro .backgroud-projetos {
+  background-color: #410345;
+}
+
+.modo-claro .backgroud-projetos {
+  background-color: #4c5c79;
 }
 
 .esquerda {
@@ -413,58 +455,72 @@ body.modo-escuro {
 :root {
   --cor-texto: #000;
   --texto-desenvolvedor: #000;
+  --escuro-projetos: rgba(82, 81, 81, 0.4784313725);
+  --backgroud-navbar: rgba(253, 253, 253, 0.8);
+  --escuro-modal: rgba(0, 0, 0, 0.7411764706);
 }
 
 body.modo-escuro {
   --cor-texto: #fff;
   --texto-desenvolvedor: #fff;
+  --escuro-projetos: rgba(15, 13, 13, 0.537254902);
+  --backgroud-navbar: rgba(5, 4, 4, 0.6705882353);
+  --escuro-modal: rgba(0, 0, 0, 0.7411764706);
 }
 
 .container-abouSkills {
   width: 100vw;
   height: 100vh;
   position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
-
 .container-abouSkills img {
-  position: absolute;
-  right: -10%;
-  top: -15%;
-  transform: scale(0.6);
-  transition: 1.5s ease-in-out;
-  margin-right: 5%;
+  position: relative;
+  top: 5%;
+  transition: 1.5s ease;
+  transform: scale(0.7);
 }
 
 .container-sobre {
   width: 40vw;
-  height: auto;
-  font-size: 1.8em;
+  height: 50%;
+  min-height: 40%;
+  font-size: 1.5em;
   position: relative;
-  left: 40px;
-  top: 15%;
+  top: 25%;
   font-family: "Itim";
   line-height: 1.8;
-  background-color: rgba(255, 255, 255, 0.1725490196);
   border-radius: 25px;
   text-align: left;
-  padding: 20px;
+  margin-left: 20px;
+}
+
+.titulo-sobremim {
+  color: #efab00;
 }
 
 :root {
   --cor-texto: #000;
   --texto-desenvolvedor: #000;
+  --escuro-projetos: rgba(82, 81, 81, 0.4784313725);
+  --backgroud-navbar: rgba(253, 253, 253, 0.8);
+  --escuro-modal: rgba(0, 0, 0, 0.7411764706);
 }
 
 body.modo-escuro {
   --cor-texto: #fff;
   --texto-desenvolvedor: #fff;
+  --escuro-projetos: rgba(15, 13, 13, 0.537254902);
+  --backgroud-navbar: rgba(5, 4, 4, 0.6705882353);
+  --escuro-modal: rgba(0, 0, 0, 0.7411764706);
 }
 
 .habilidades {
   width: 100vw;
   height: auto;
   min-height: 100vh;
-  background-color: #0f0227;
   position: relative;
 }
 
@@ -473,7 +529,7 @@ body.modo-escuro {
   height: 30%;
   margin-left: 60px;
   position: relative;
-  transform: translateY(20%);
+  top: 80px;
 }
 
 .titulos {
@@ -485,6 +541,9 @@ body.modo-escuro {
 
 .titulos-alto {
   font-size: 2.3em;
+}
+
+.titulo-habilidades {
   color: #003b62;
 }
 
@@ -606,19 +665,332 @@ body.modo-escuro {
 :root {
   --cor-texto: #000;
   --texto-desenvolvedor: #000;
+  --escuro-projetos: rgba(82, 81, 81, 0.4784313725);
+  --backgroud-navbar: rgba(253, 253, 253, 0.8);
+  --escuro-modal: rgba(0, 0, 0, 0.7411764706);
 }
 
 body.modo-escuro {
   --cor-texto: #fff;
   --texto-desenvolvedor: #fff;
+  --escuro-projetos: rgba(15, 13, 13, 0.537254902);
+  --backgroud-navbar: rgba(5, 4, 4, 0.6705882353);
+  --escuro-modal: rgba(0, 0, 0, 0.7411764706);
 }
 
 .projetos {
   width: 100vw;
-  height: auto;
+  height: 100vh;
   min-height: 100vh;
   position: relative;
-  background-color: #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.titulo-projetos {
+  display: flex;
+  flex-direction: column;
+  top: 8%;
+  position: absolute;
+}
+.titulo-projetos::after {
+  content: "";
+  background-color: #fff;
+  width: 70vw;
+  height: 3px;
+  bottom: 0;
+}
+
+.titulo-projetos-alto {
+  color: #00c489;
+}
+
+.container-projetos {
+  background-color: var(--escuro-projetos);
+  width: 25%;
+  height: 70%;
+  top: 25%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 25px;
+}
+
+.fundo-projetos {
+  width: 90%;
+  height: 40%;
+  position: relative;
+  background-color: #fff;
+  border-radius: 25px;
+  margin-top: 15px;
+}
+
+.abrigo-projetos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.abrigo-projetos img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  position: relative;
+}
+
+.text-projetos {
+  margin-right: 10px;
+  margin-top: 15px;
+  width: 90%;
+  height: auto;
+  font-family: "Itim";
+}
+.text-projetos h2 {
+  margin: 0;
+  border-bottom: 2px solid #fff;
+  font-size: 1.4em;
+}
+
+.btn-link-site {
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  z-index: 10;
+}
+.btn-link-site button {
+  width: 100%;
+  height: 40px;
+  background-color: #055a6f;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--cor-texto);
+  transition: transform 0.3s ease-in-out;
+  text-align: center;
+  font-family: "Itim";
+  font-size: 1.2em;
+}
+
+.btn-link-site button:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.skills-projeto {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 15px;
+  right: 10px;
+}
+
+.skills-projeto i {
+  position: relative;
+  cursor: pointer;
+}
+.skills-projeto i.fa-html5:hover {
+  color: #e34c26;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
+.skills-projeto i.fa-css3-alt:hover {
+  color: #264de4;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
+.skills-projeto i.fa-js:hover {
+  color: #f7df1e;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
+.skills-projeto i.fa-react:hover {
+  color: #61dafb;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
+.skills-projeto i.fa-node-js:hover {
+  color: #68a063;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
+.skills-projeto i.fa-sass:hover {
+  color: #cf649a;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
+.skills-projeto i.fa-bootstrap:hover {
+  color: #7952B3;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
+
+:root {
+  --cor-texto: #000;
+  --texto-desenvolvedor: #000;
+  --escuro-projetos: rgba(82, 81, 81, 0.4784313725);
+  --backgroud-navbar: rgba(253, 253, 253, 0.8);
+  --escuro-modal: rgba(0, 0, 0, 0.7411764706);
+}
+
+body.modo-escuro {
+  --cor-texto: #fff;
+  --texto-desenvolvedor: #fff;
+  --escuro-projetos: rgba(15, 13, 13, 0.537254902);
+  --backgroud-navbar: rgba(5, 4, 4, 0.6705882353);
+  --escuro-modal: rgba(0, 0, 0, 0.7411764706);
+}
+
+.modal-contatos-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--escuro-modal);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: #0d2a00;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 50%;
+  height: 50%;
+}
+
+.fechar-modal {
+  position: relative;
+  display: flex;
+  top: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.modal-ativo {
+  display: flex;
+}
+
+.tituulo-form-contatos {
+  font-family: "Itim";
+  font-size: 1.9em;
+  text-align: center;
+  position: relative;
+  color: #fff;
+}
+.tituulo-form-contatos::after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  width: 40vw;
+  height: 3px;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.container-dados-ctt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  width: 90%;
+  height: 100%;
+  margin-top: -5%;
+}
+
+.dados-inicias-ctt {
+  display: flex;
+  flex-direction: column;
+}
+
+.remetente, .contato-assunto {
+  height: 30px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.contato-corpo {
+  display: flex;
+  width: 50%;
+  height: 50%;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.enviar-ctt {
+  border-radius: 25px;
+  height: 30px;
+  border: none;
+  background-color: #0e6f28;
+  position: relative;
+}
+.enviar-ctt:hover {
+  background-color: #00af2f;
+}
+
+.form-contato {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.icones-ctt {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 20%;
+}
+
+.icones-ctt a {
+  color: #fff;
+  font-size: 1.6em;
+}
+
+.icones-ctt a i.fa-linkedin:hover {
+  color: #0077B5;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
+.icones-ctt a i.fa-envelope:hover {
+  color: #D44638;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
+.icones-ctt a i.fa-whatsapp:hover {
+  color: #25D366;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
+.icones-ctt a i.fa-github:hover {
+  color: #181717;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
 }
 
 html {
@@ -641,18 +1013,42 @@ body {
 
 .container-navbar {
   position: fixed;
+  background-color: transparent;
   right: 0;
-  width: 60%;
+  width: 100%;
   height: 50px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   z-index: 99999999999;
+  transition: background-color 0.3s ease-in-out;
+}
+.container-navbar.navbar-scroll {
+  background-color: var(--backgroud-navbar);
 }
 .container-navbar .navbar {
   display: flex;
   gap: 30px;
   margin-right: 40px;
+}
+
+.logo {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  left: 20px;
+  font-family: "Itim";
+}
+.logo a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--cor-texto);
+}
+.logo h1 {
+  color: #089e7b;
+  font-size: 2em;
 }
 
 a.link-navbar {
@@ -689,20 +1085,23 @@ a.link-navbar::after {
 .container-apresentacao {
   position: relative;
   right: -55%;
-  width: auto;
+  top: 5%;
   max-width: 30%;
-  height: auto;
   white-space: nowrap;
-  font-size: 3em;
-  font-family: "Itim";
   z-index: 1;
+}
+.container-apresentacao h2 {
+  font-size: 2.5em;
+  font-family: "Itim";
 }
 .container-apresentacao h1 {
   position: relative;
-  top: -50px;
+  top: 10%;
   right: 50px;
   display: block;
-  animation: fade-in-slide 1.5s ease-out both;
+  font-size: 3.5em;
+  font-family: "Itim";
+  border-bottom: 2px solid #fff;
 }
 
 .alternar-escrita {
@@ -710,8 +1109,14 @@ a.link-navbar::after {
   font-size: 3.3vw;
   color: #089e7b;
   font-weight: bold;
-  top: -30px;
+  top: -40px;
   right: 50px;
+  animation: digitando 0.5s ease;
+  display: inline-block;
+  border-right: 2px solid #089e7b;
+  animation: piscar-cursor 0.7s steps(1) infinite;
+  font-size: 3em;
+  font-family: "Itim";
 }
 .alternar-escrita::before {
   content: "Desenvolvedor";
@@ -741,6 +1146,65 @@ a.link-navbar::after {
   height: 50px;
   pointer-events: none;
   color: #fff;
+}
+
+.animar-lado {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 0.5s ease-in-out;
+}
+
+.animar-lado.ativo {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animar-lado-esquerdo {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.5s ease-in-out;
+}
+
+.animar-lado-esquerdo.ativo-esquerdo {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.redes-sociais-home {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  gap: 10px;
+}
+.redes-sociais-home a {
+  font-size: 1.6em;
+  color: var(--cor-texto);
+  transition: transform 0.3s ease-in-out;
+}
+.redes-sociais-home a:hover {
+  transform: scale(1.2);
+}
+.redes-sociais-home a i.fa-linkedin:hover {
+  color: #0077B5;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
+.redes-sociais-home a i.fa-envelope:hover {
+  color: #D44638;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
+.redes-sociais-home a i.fa-whatsapp:hover {
+  color: #25D366;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
+.redes-sociais-home a i.fa-github:hover {
+  color: #181717;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
 }
 
 /*# sourceMappingURL=styles.css.map*/

@@ -2,6 +2,86 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/js modules/animacaoEntrada.js":
+/*!*******************************************!*\
+  !*** ./src/js modules/animacaoEntrada.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ animacaoEntrada)
+/* harmony export */ });
+function animacaoEntrada() {
+  function ativarAnimacaoAoScroll(seletor) {
+    var elementos = document.querySelectorAll(seletor);
+    function verificarVisibilidade() {
+      elementos.forEach(function (el) {
+        if (el.classList.contains('ativo')) return;
+        var rect = el.getBoundingClientRect();
+        var alturaElemento = rect.height;
+        var alturaViewport = window.innerHeight;
+        var parteVisivel = Math.min(rect.bottom, alturaViewport) - Math.max(rect.top, 0);
+        var porcentagemVisivel = parteVisivel / alturaElemento;
+        if (porcentagemVisivel >= 0.2) {
+          el.classList.add('ativo');
+        } else {
+          el.classList.remove('ativo');
+        }
+      });
+    }
+    window.addEventListener('scroll', verificarVisibilidade);
+    verificarVisibilidade();
+  }
+  ativarAnimacaoAoScroll('.animar-lado');
+  function ativarAnimacaoAoScrollEsquerdo(seletor) {
+    var elementos = document.querySelectorAll(seletor);
+    function verificarVisibilidade() {
+      elementos.forEach(function (el) {
+        if (el.classList.contains('ativo-esquerdo')) return;
+        var rect = el.getBoundingClientRect();
+        var alturaElemento = rect.height;
+        var alturaViewport = window.innerHeight;
+        var parteVisivel = Math.min(rect.bottom, alturaViewport) - Math.max(rect.top, 0);
+        var porcentagemVisivel = parteVisivel / alturaElemento;
+        if (porcentagemVisivel >= 0.2) {
+          el.classList.add('ativo-esquerdo');
+        } else {
+          el.classList.remove('ativo-esquerdo');
+        }
+      });
+    }
+    window.addEventListener('scroll', verificarVisibilidade);
+    verificarVisibilidade();
+  }
+  ativarAnimacaoAoScrollEsquerdo('.animar-lado-esquerdo');
+}
+
+/***/ }),
+
+/***/ "./src/js modules/backgroudnavbar.js":
+/*!*******************************************!*\
+  !*** ./src/js modules/backgroudnavbar.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ backgroudNavbar)
+/* harmony export */ });
+function backgroudNavbar() {
+  var navbar = document.querySelector('.container-navbar');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 0) {
+      navbar.classList.add('navbar-scroll');
+    } else {
+      navbar.classList.remove('navbar-scroll');
+    }
+  });
+}
+
+/***/ }),
+
 /***/ "./src/js modules/bordaNavbar.js":
 /*!***************************************!*\
   !*** ./src/js modules/bordaNavbar.js ***!
@@ -125,36 +205,41 @@ __webpack_require__.r(__webpack_exports__);
 function escritasAnimation() {
   var escrita = document.querySelector('.alternar-escrita');
   var adjetivos = ['Front-end', 'Web', 'Criativo', 'Comunicativo', 'Flexível'];
-  var index = 0;
-  function atualizarTexto() {
-    escrita.innerHTML = " ".concat(adjetivos[index]);
-    index = (index + 1) % adjetivos.length;
-  }
-  setInterval(atualizarTexto, 1500);
-  atualizarTexto();
-}
+  var index = 0; // Índice da palavra atual
+  var charIndex = 0; // Índice do caractere atual
+  var isDeleting = false; // Indica se está apagando o texto
 
-/***/ }),
+  function digitar() {
+    var palavraAtual = adjetivos[index]; // Palavra atual do array
+    var textoVisivel = palavraAtual.slice(0, charIndex); // Texto visível no momento
 
-/***/ "./src/js modules/eventoscrol.js":
-/*!***************************************!*\
-  !*** ./src/js modules/eventoscrol.js ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    escrita.textContent = textoVisivel; // Atualiza o texto na tela
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ eventoScroll)
-/* harmony export */ });
-function eventoScroll() {
-  window.addEventListener('scroll', function () {
-    var sobreMim = document.querySelector('.container-sobre');
-    var posicaoSobre = sobreMim.getBoundingClientRect().top;
-    var alturaTela = window.innerHeight;
-    if (posicaoSobre < alturaTela - 150) {
-      sobreMim.classList.add('ativo');
+    if (!isDeleting) {
+      // Se estiver digitando
+      if (charIndex < palavraAtual.length) {
+        charIndex++; // Avança para o próximo caractere
+      } else {
+        // Quando a palavra estiver completamente digitada
+        isDeleting = true; // Começa a apagar
+        setTimeout(digitar, 1000); // Aguarda 0.5s antes de apagar
+        return;
+      }
+    } else {
+      // Se estiver apagando
+      if (charIndex > 0) {
+        charIndex--; // Remove um caractere
+      } else {
+        isDeleting = false; // Volta a digitar
+        index = (index + 1) % adjetivos.length; // Avança para a próxima palavra
+      }
     }
-  });
+
+    // Define o tempo entre cada caractere (mais lento ao apagar)
+    var delay = isDeleting ? 50 : 150;
+    setTimeout(digitar, delay);
+  }
+  digitar();
 }
 
 /***/ }),
@@ -193,6 +278,42 @@ function lampada() {
     body.classList.toggle('modo-claro');
     body.classList.toggle('modo-escuro');
     atualizarEstado(); // Atualiza o estado após alternar o modo
+  });
+}
+
+/***/ }),
+
+/***/ "./src/js modules/modalContatos.js":
+/*!*****************************************!*\
+  !*** ./src/js modules/modalContatos.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ modalContatos)
+/* harmony export */ });
+function modalContatos() {
+  var modalContainer = document.querySelector('.modal-contatos-container');
+  var modalTrigger = document.querySelector('.modal-contatos');
+  var closeModalButton = document.querySelector('.fechar-modal');
+
+  // Abre o modal ao clicar no link "Contatos"
+  modalTrigger.addEventListener('click', function (event) {
+    event.preventDefault(); // Evita o comportamento padrão do link
+    modalContainer.classList.add('modal-ativo');
+  });
+
+  // Fecha o modal ao clicar no botão "X"
+  closeModalButton.addEventListener('click', function () {
+    modalContainer.classList.remove('modal-ativo');
+  });
+
+  // Fecha o modal ao clicar fora dele
+  modalContainer.addEventListener('click', function (event) {
+    if (event.target === modalContainer) {
+      modalContainer.classList.remove('modal-ativo');
+    }
   });
 }
 
@@ -315,10 +436,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_modules_darkmode__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js modules/darkmode */ "./src/js modules/darkmode.js");
 /* harmony import */ var _js_modules_lampada__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js modules/lampada */ "./src/js modules/lampada.js");
 /* harmony import */ var _js_modules_clickSplash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js modules/clickSplash */ "./src/js modules/clickSplash.js");
-/* harmony import */ var _js_modules_eventoscrol__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js modules/eventoscrol */ "./src/js modules/eventoscrol.js");
-/* harmony import */ var _js_modules_escritas__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js modules/escritas */ "./src/js modules/escritas.js");
-/* harmony import */ var _js_modules_randomimg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js modules/randomimg */ "./src/js modules/randomimg.js");
-/* harmony import */ var _js_modules_bordaNavbar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js modules/bordaNavbar */ "./src/js modules/bordaNavbar.js");
+/* harmony import */ var _js_modules_escritas__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js modules/escritas */ "./src/js modules/escritas.js");
+/* harmony import */ var _js_modules_randomimg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js modules/randomimg */ "./src/js modules/randomimg.js");
+/* harmony import */ var _js_modules_bordaNavbar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js modules/bordaNavbar */ "./src/js modules/bordaNavbar.js");
+/* harmony import */ var _js_modules_animacaoEntrada__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js modules/animacaoEntrada */ "./src/js modules/animacaoEntrada.js");
+/* harmony import */ var _js_modules_backgroudnavbar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js modules/backgroudnavbar */ "./src/js modules/backgroudnavbar.js");
+/* harmony import */ var _js_modules_modalContatos__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js modules/modalContatos */ "./src/js modules/modalContatos.js");
+
+
 
 
 
@@ -330,11 +455,13 @@ __webpack_require__.r(__webpack_exports__);
 document.addEventListener('DOMContentLoaded', function () {
   (0,_js_modules_darkmode__WEBPACK_IMPORTED_MODULE_1__["default"])();
   (0,_js_modules_lampada__WEBPACK_IMPORTED_MODULE_2__["default"])();
-  (0,_js_modules_escritas__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  (0,_js_modules_escritas__WEBPACK_IMPORTED_MODULE_4__["default"])();
   (0,_js_modules_clickSplash__WEBPACK_IMPORTED_MODULE_3__["default"])();
-  (0,_js_modules_eventoscrol__WEBPACK_IMPORTED_MODULE_4__["default"])();
-  (0,_js_modules_randomimg__WEBPACK_IMPORTED_MODULE_6__["default"])();
-  (0,_js_modules_bordaNavbar__WEBPACK_IMPORTED_MODULE_7__["default"])();
+  (0,_js_modules_randomimg__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  (0,_js_modules_bordaNavbar__WEBPACK_IMPORTED_MODULE_6__["default"])();
+  (0,_js_modules_animacaoEntrada__WEBPACK_IMPORTED_MODULE_7__["default"])();
+  (0,_js_modules_backgroudnavbar__WEBPACK_IMPORTED_MODULE_8__["default"])();
+  (0,_js_modules_modalContatos__WEBPACK_IMPORTED_MODULE_9__["default"])();
 });
 })();
 
