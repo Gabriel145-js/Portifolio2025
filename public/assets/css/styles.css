@@ -882,7 +882,6 @@ body.modo-escuro {
   border: none;
   font-size: 1.5em;
   cursor: pointer;
-  width: 0;
 }
 .fechar-modal:hover {
   color: #ff0808;

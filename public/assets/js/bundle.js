@@ -120,7 +120,7 @@ __webpack_require__.r(__webpack_exports__);
 function clickSplash() {
   document.addEventListener('click', function (e) {
     var container = document.querySelector('.click-container');
-    var splashes = ['/src/imgs/svgs/splashsvg/splash.svg', '/src/imgs/svgs/splashsvg/splashAmarelo.svg', '/src/imgs/svgs/splashsvg/splashAzul.svg', '/src/imgs/svgs/splashsvg/splashRoxo.svg'];
+    var splashes = ['./imgs/svgs/splashsvg/splash.svg', './imgs/svgs/splashsvg/splashAmarelo.svg', './imgs/svgs/splashsvg/splashAzul.svg', './imgs/svgs/splashsvg/splashRoxo.svg'];
     var randomSplash = splashes[Math.floor(Math.random() * splashes.length)];
     var splash = document.createElement('div');
     splash.classList.add('splash');
