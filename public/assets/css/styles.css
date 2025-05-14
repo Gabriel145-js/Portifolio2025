@@ -868,16 +868,24 @@ body.modo-escuro {
   text-align: center;
   width: 50%;
   height: 50%;
+  position: relative;
 }
 
 .fechar-modal {
-  position: relative;
+  position: absolute;
+  margin-right: 30px;
+  right: 0;
+  color: #fff;
   display: flex;
   top: 10px;
   background: none;
   border: none;
   font-size: 1.5em;
   cursor: pointer;
+  width: 0;
+}
+.fechar-modal:hover {
+  color: #ff0808;
 }
 
 .modal-ativo {
@@ -1177,14 +1185,33 @@ a.link-navbar::after {
   bottom: 10px;
   left: 10px;
   gap: 10px;
+  margin-left: 10px;
+  font-family: "Itim";
 }
 .redes-sociais-home a {
+  display: flex;
+  align-items: center;
   font-size: 1.6em;
   color: var(--cor-texto);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  text-decoration: none;
+  gap: 10px;
+}
+.redes-sociais-home a span {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  border-bottom: 2px solid var(--cor-texto);
 }
 .redes-sociais-home a:hover {
   transform: scale(1.2);
+}
+.redes-sociais-home a:hover span {
+  opacity: 1;
+  visibility: visible;
+}
+.redes-sociais-home a:last-child {
+  gap: 20px;
 }
 .redes-sociais-home a i.fa-linkedin:hover {
   color: #0077B5;
@@ -1203,6 +1230,11 @@ a.link-navbar::after {
 }
 .redes-sociais-home a i.fa-github:hover {
   color: #181717;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
+.redes-sociais-home a i.fa-download:hover {
+  color: #007bff;
   transform: scale(1.1);
   transition: 0.3s ease-in-out;
 }
